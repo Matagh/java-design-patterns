@@ -1,5 +1,7 @@
 package fr.diginamic.singleton;
 
+import fr.diginamic.tp_adapter.IDocSalaire;
+
 /** Système de gestion de la paye
  * @author RichardBONNAMY
  *
@@ -7,14 +9,14 @@ package fr.diginamic.singleton;
 public class SystemeGestion {
 
 	/** Génère un bulletin de salaire au format PDF
-	 * @param bulletinSalaire
+	 * @param docSalaire
 	 * @param filePath path du fichier (ex: C:/Temp/monFichier.pdf) 
 	 */
-	public void genererPdf(BulletinSalaire bulletinSalaire, String filePath) {
+	public void genererPdf(IDocSalaire docSalaire, String filePath) {
 		
 		BulletinSalairePdf pdf = new DocumentPdfBuilder(filePath)
-				                     .appendIdentite(bulletinSalaire.getNom(), bulletinSalaire.getPrenom())
-				                     .appendSalaire(bulletinSalaire.getSalaire())
+				                     .appendIdentite(docSalaire.getNom(), docSalaire.getPrenom())
+				                     .appendSalaire(docSalaire.getSalaire())
 				                     .get();
 		pdf.generer();
 	}

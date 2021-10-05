@@ -1,10 +1,12 @@
 package fr.diginamic.singleton;
 
+import fr.diginamic.tp_adapter.IDocSalaire;
+
 /** Représente un bulletin de salaire
  * @author RichardBONNAMY
  *
  */
-public class BulletinSalaire {
+public class BulletinSalaire implements IDocSalaire {
 
 	/** nom */
 	private String nom;
@@ -27,6 +29,7 @@ public class BulletinSalaire {
 	/** Getter
 	 * @return the nom
 	 */
+	@Override
 	public String getNom() {
 		return nom;
 	}
@@ -39,6 +42,7 @@ public class BulletinSalaire {
 	/** Getter
 	 * @return the prenom
 	 */
+	@Override
 	public String getPrenom() {
 		return prenom;
 	}
@@ -51,6 +55,7 @@ public class BulletinSalaire {
 	/** Getter
 	 * @return the salaire
 	 */
+	@Override
 	public double getSalaire() {
 		return salaire;
 	}
