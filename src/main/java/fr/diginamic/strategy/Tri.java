@@ -1,9 +1,13 @@
 package fr.diginamic.strategy;
 
+import fr.diginamic.tp_strategy.Strategy;
+import fr.diginamic.tp_strategy.StrategyFactory;
+import org.hibernate.annotations.SortType;
+
 public class Tri {
 
 	public void exec(int typeTri, Integer[] arr) {
-		
+
 		// Bubble sort algorithm
 		if (typeTri==1) {
 			int n = arr.length;
@@ -43,5 +47,10 @@ public class Tri {
 	            arr[i] = smallerNumber;  
 	        }  
 		}
+	}
+
+	public void refactoredExec(StrategyFactory.SortType typeTri, Integer[] arr){
+		Strategy algoTri = StrategyFactory.getSortAlgorithm(typeTri);
+		algoTri.trier(arr);
 	}
 }
